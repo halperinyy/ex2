@@ -8,36 +8,10 @@ Assignment: ex2
 
 int main() {
 
-	int menue;
-	char e,h0='a',h1='a';
-	char eye,nose,mouth;
-	int size,o1,o2;
-	int r;
-	// 	printf("Choose an option:\n"
-	// 	"1. Happy Face\n"
-	// 	"2. Balanced Number\n"
-	// 	"3. Generous Number\n"
-	// 	"4. Circle Of Joy\n"
-	// 	"5. Happy Numbers\n"
-	// 	"6. Festival Of Laughter\n"
-	// 	"7. Exit\n");
-	// 	menue=1;
-	// 	r = scanf(" %c", &e);
-	// 	printf("r = %d, h0 = %c, h1 = %c\n", r,h0,h1);
-
-	// 			/*case 1:*/
-	// 			// printf("Enter symbols for the eyes, nose, and mouth:\n");
-	// 			int yy = scanf("%c%c%c", &eye ,&nose ,&mouth);
-	// 			// printf("yy = %d\n", yy);
-	// 			printf("Enter face size:\n");
-	// 		 r = scanf("%d", &size);
-	// 			printf("%d, r = %d\n", size, r);
-
-	// return 0;
-
+	int menue; //to store the user's menu selection.
 	int mainIndex = 0;
-	while(mainIndex != 1){
-		printf("Choose an option:\n"
+	while(mainIndex != 1){ //they'll get the menu again and again until they'll exit
+		printf("Choose an option:\n" //printing the menu
 		"1. Happy Face\n"
 		"2. Balanced Number\n"
 		"3. Generous Number\n"
@@ -45,77 +19,63 @@ int main() {
 		"5. Happy Numbers\n"
 		"6. Festival Of Laughter\n"
 		"7. Exit\n");
-		scanf(" %d", &menue);
-		switch(menue){
-			// Case 1: Draw Happy Face with given symbols for eyes, nose and mouse
-			/* Example:
-			* n = 3:
-			* 0   0
-			*   o
-			* \___/
-			*/
+		scanf(" %d", &menue); //scaning the user's choise
+		switch(menue){ //switch case - for doing only the user's requested program
+
 			case 1:{
-				char eye,nose,mouth;
-				int size,o1,o2;
-				printf("Enter symbols for the eyes, nose, and mouth:\n");
-				// int yy = scanf("%c%c%c", &eye ,&nose ,&mouth);
-				scanf(" %c", &eye);
-				scanf(" %c" ,&nose);
-				scanf(" %c", &mouth);
-				for(int i1 =0;i1 != 1;){
-					printf("Enter face size:\n");
-					scanf(" %d", &size);
-						 //'i' stands for Index 
-						o1 = size / 2; //odd stands for 'odd'
+				char eye,nose,mouth; //for the input
+				int size,o1,o2; //size - an important input. o1,o2 - for calcualiting oddness
+				printf("Enter symbols for the eyes, nose, and mouth:\n"); //printing -  as requested
+				scanf(" %c", &eye); //scannig -  as requested
+				scanf(" %c" ,&nose); //scannig -  as requested
+				scanf(" %c", &mouth); //scannig -  as requested
+				printf("Enter face size:\n");
+				scanf(" %d", &size); //scannig -  as requested
+		
+		
+				for(int i1 =0;i1 != 1;){ //i is common in loops. so i'll use i / i with a number (for the part in this h.w) / i + letter representin an intregate
+						o1 = size / 2; 
 						o2 = size % 2;	
 							if(o2 == 1 && size > 0){
-								printf("%c" ,eye);
-								for(int si = 0;si < size;si ++){ //si = size index
+								printf("%c" ,eye); /*printing the eyes, with a loop of 'space' working as many times as the size between them*/
+								for(int si = 0;si < size;si ++){ //si = size i
 									printf(" ");
 								}
 								printf("%c\n" ,eye);
-								for(int ni1 = 0;ni1 < o1;ni1 ++){ //ni = nose index
+								for(int ni1 = 0;ni1 < o1;ni1 ++){ //ni = nose i
 									printf(" ");
 								}
 								for(int noseindex = 0;noseindex < o1;noseindex ++){ //ni = nose index
-									printf(" ");
+									printf(" "); /*printing the nose, with a loop of 'space' working as many times as the size / 2 before and after the nose char*/
 								}								
 								printf("%c" ,nose);
-								for(int ni2 = 0;ni2 < o1;ni2 ++){ //ni = nose index
+								for(int ni2 = 0;ni2 < o1;ni2 ++){ //ni = nose i 2
 									printf(" ");
 								}
 								printf("\n");
 								printf("\\");
-								for(int mi = 0;mi < size;mi ++){ //mi = mouth index
-									printf("%c" ,mouth);
+								for(int mi = 0;mi < size;mi ++){ //mi = mouth i
+									printf("%c" ,mouth); /*printing the mouth, with a loop of 'mouth' working as many times as the size between the two \/*/
 								}	
 								printf("/");
 								printf("\n");
-								i1 = 1;
+								i1 = 1; //getting out from the loop
 							}
 							else{
-								printf("The face's size must be an odd and positive number, please try again:\n");
+								printf("The face's size must be an odd and positive number, please try again:\n"); //as requested
 							}
 					}
 				}
 
 				break;
-			// Case 2: determine whether the sum of all digits to the left of the middle digit(s)
-			// and the sum of all digits to the right of the middle digit(s) are equal
-			/* Examples:
-			Balanced: 1533, 450810, 99
-			Not blanced: 1552, 34
-			Please notice: the number has to be bigger than 0.
-			*/
 			case 2:	{		
-				/*there's a loop! /yy */
 				int i6 = 0;
+				printf("Enter a number:\n");
 				while(i6 != 1){
-					printf("Enter a number:\n");
-					int a,b,c1,c2,c3,c4,c5,d,e,f,g,h,j = 0,lm; //'i' stands for Index
-					scanf(" %d", &a);
-					b = a;
-					if(a > 0){
+					int num,b,c1,c2,c3,c4,c5,d,e,f,g,h,j = 0; //i gave informative names for the imprtant hings. because most of them are fof caculaiting i gave c for conters and  int's that rely on them
+					scanf(" %d", &num);
+					b = num;
+					if(num > 0){
 						c1 = 0;
 						for(int i2 = 0;i2 != 1;){//'i' stands for Index
 							b = b / 10;
@@ -132,37 +92,27 @@ int main() {
 							c4 = c2 - 1;
 						}
 						else{
-
+							c3 = c3;
+							c4 = c2;
 						}
-						// printf("c1 is: %d\n" ,c1);
-						// printf("c2 is: %d\n" ,c2);
-						// printf("c3 is: %d\n" ,c3);
-						// printf("c4 is: %d\n" ,c4);
-						// printf("c5 is: %d\n" ,c5);
 						f = 0;
-						d = a;
-						g = a;
+						d = num;
+						g = num;
 
 						for(int i3 = 0; i3 != c4; i3++){ //sum of the left numbers
 							e = d % 10;
-							printf("e is:%d\n" ,e);
 							f = f + e;
-							printf("f is:%d\n" ,f);
 							d = d / 10;
-							printf("d is:%d\n" ,d);
 						}
-						printf("f is:%d\n" ,f);
 
 						for(int i5 = 0; i5 != c2; i5++){
 							for(int i4 = 0; i4 != c3;i4++){ //leaving only the right digits left
 								g = g / 10;
-								printf("g is: %d\n" ,g);
 							}
 							h = g % 10;
 							j = j + h;
 							g = g / 10;
 						}
-						printf("j is:%d\n" ,j);
 						if(j == f){
 							printf("This number is balanced and brings harmony!\n");
 							i6 = 1;
@@ -187,67 +137,58 @@ int main() {
 
 			case 3: {
 				int n3;
+				printf("Enter a number:\n");
+				scanf(" %d",&n3);
 				for(int i3 = 0;i3 != 1;){
-					printf("Enter a number:\n");
-					scanf(" %d",&n3);
 					if(n3 > 0){		
 						int reminder;
 						int sor = 1; // 'sor' stands for "sum of reminders" 
 						for(int i = 1;n3 > i;i++){
 							// int reminder;
 							reminder = n3 % i;
-							printf("reminder is: %d", reminder);							
 							// int sor = 0; // 'sor' stands for "sum of reminders" 
 							if(reminder == 0){
-								printf("reminder is:  %d", reminder);							
 								sor = sor + reminder;
-								printf("sor is:  %d", sor);														
 							}
 						}	
-							if(sor > n3){
-								printf("This number is generous!");
+							if(sor > n3){ //does he is genouros?
+								printf("This number is generous!\n");
 								i3 = 1;
 							}
 							else{
-								printf("This number does not share.!");
+								printf("This number does not share.!\n");
 								i3 = 1;
 							}
 						
 					}
 					else{
-						printf("Only positive number is allowed, please try again:");
+						printf("Only positive number is allowed, please try again:\n");
 					}	
 				}
 			}   
 				break;
 
-			// Case 4: determine wether a number is a a_prime.
-			/* Examples:
-			This one brings joy: 3, 5, 11
-			This one does not bring joy: 15, 8, 99
-			Please notice: the number has to be bigger than 0.
-			*/
 			case 4:{
-					int a,a_orig,rev;
+					int a,a_orig,rev; //a stands for "a number"
 					printf("Enter a number:\n");
 					scanf(" %d", &a);
-					while(a <= 0)
+					while(a <= 0) //we dont want negative / zero
 					{
 						printf("Only positive number is allowed, please try again:\n");
 						scanf(" %d", &a);
 					}
 
-					rev = 0;
+					rev = 0; //reversed
 					a_orig = a;
 					//reverse the number a_orig to rev
-					while(a_orig) {
-						rev *= 10;
-						rev += (a_orig % 10);
-						a_orig = a_orig / 10;
+					while(a_orig) { 
+						rev *= 10; //rightshift
+						rev += (a_orig % 10); //adding to the rev
+						a_orig = a_orig / 10; //updating 
 					}
 
 					int prime = 1;
-					if(a>1){
+					if(a>1){ 
 						//Check if a is prime
 						for(int d = a - 1; d > 1 && prime == 1 ; d--){
 							if( (a % d) == 0){
@@ -274,18 +215,11 @@ int main() {
 				}   
 				break;
 
-			// Happy numbers: Print all the happy numbers between 1 to the given number.
-			// Happy number is a number which eventually reaches 1 when replaced by the sum of the square of each digit
-			/* Examples:
-			Happy :) : 7, 10
-			Not Happy :( : 5, 9
-			Please notice: the number has to be bigger than 0.
-			*/
 			case 5:{
 					int n;
 					printf("Enter a number:\n");
 					scanf(" %d", &n);
-					while(n <= 0)
+					while(n <= 0) //we dont want negative / zero
 					{
 						printf("Only positive number is allowed, please try again:\n");
 						scanf(" %d", &n);
@@ -324,78 +258,20 @@ int main() {
 					printf("\n");
 				}   
 				break;
-			// Festival of Laughter: Prints all the numbers between 1 the given number:
-			// and replace with "Smile!" every number that divided by the given smile number
-			// and replace with "Cheer!" every number that divided by the given cheer number
-			// and replace with "Festival!" every number that divided by both of them
-			/* Example:
-			6, smile: 2, cheer: 3 : 1, Smile!, Cheer!, Smile!, 5, Festival!
-			*/
 
 			case 6:{
 					int n;
-					int smileNumber, cheerNumber;
-					char cheer_str[] = "cheer:";
-					char smile_str[] = "smile:";
-					char buff0[300];
-					char buff1[300];
+					int smileNumber = 0,cheerNumber = 0; //starting at 0 make things much more easier
 					printf("Enter a smile and cheer number:\n");
-					// scanf(" smile: %d, cheer: %d", &smileNumber, &cheerNumber);
-					scanf(" smile: %[^abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ], cheer: %[^abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ]",buff0,buff1);
-					printf("buff0 = %s\n",buff0);
-					printf("buff1 = %s\n",buff1);
-					break;
-					// scanf(" smile: %[^a-zA-Z]d, cheer: %[^a-zA-Z]",&smileNumber,&cheerNumber);
-					// printf("smileNumber = %d\n",smileNumber);
-					// printf("cheerNumber = %d\n",cheerNumber);
+					scanf(" smile: %d , cheer: %d" ,&smileNumber, &cheerNumber); //scanning for the requested numbers
 
-					int char_index = 0;
-					//Skip whitespaces
-					// while(buff[char_index] == ' ')
-					// {
-					// 	char_index++;
-					// }
-					// int i_cheer = 0;
-					// //Skip cheer_str
-					// while(buff[char_index] == cheer_str[i_cheer] && cheer_str[i_cheer])
-					// {
-					// 	char_index++;
-					// 	i_cheer++;
-					// }
-
-					// if(cheer_str[i_cheer] != 0)
-					// {
-
-					// }
-
-					// //Skip whitespaces
-					// while(buff[char_index] == ' ')
-					// {
-					// 	char_index++;
-					// }
-
-					// //Extract number to cheer
-					// //Skip whitespaces
-					// while(buff[char_index] == ' ')
-					// {
-					// 	char_index++;
-					// }
-
-					// //Skip smile_str
-
-					// //Skip whitespaces
-					// while(buff[char_index] == ' ')
-					// {
-					// 	char_index++;
-					// }
-
-					//Extract number to smile
-
-
-
-
-					//printf("smileNumber = %d, cheerNumber = %d\n", smileNumber, cheerNumber);
-					printf("Enter maximum number for the festival:\n");
+					while(smileNumber == 0 || cheerNumber == 0 || smileNumber == cheerNumber){ // a loop that will earase the spaces, and make sure the input is in the requested format
+						scanf("%*[^\n]");
+						scanf("%*c");
+							printf("Only 2 different positive numbers in the given format are allowed for the festival, please try again:\n");
+							scanf(" smile : %d , cheer : %d" ,&smileNumber, &cheerNumber);
+					}
+					printf("Enter maximum number for the festival:\n"); // as requested
 					scanf(" %d", &n);
 					while(n <= 0)
 					{
